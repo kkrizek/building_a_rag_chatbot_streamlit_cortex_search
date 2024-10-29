@@ -1,3 +1,10 @@
+/*
+Create a table function that will split text into chunks
+
+We will be using the Langchain Python library to accomplish the necessary document split tasks. Because as part of Snowpark Python these are available inside the 
+integrated Anaconda repository, there are no manual installs or Python environment and dependency management required.
+*/
+
 create or replace function text_chunker(pdf_text string)
 returns table (chunk varchar)
 language python
@@ -25,3 +32,14 @@ class text_chunker:
         
         yield from df.itertuples(index=False, name=None)
 $$;
+
+-- Create a Stage with Directory Table where you will host your documents
+create or replace stage docs ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE') DIRECTORY = ( ENABLE = true );
+
+-- The documents are stored in an integrated GIT repository.  There should be one GIT repository in your database
+show git repositories;
+
+-- Copy the Documents
+COPY FILES INTO @docs/
+    FROM @<NAME of the git repository>/branches/main/docs/;
+
