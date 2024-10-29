@@ -43,3 +43,6 @@ show git repositories;
 COPY FILES INTO @docs/
     FROM @<NAME of the git repository>/branches/main/docs/;
 
+ls @docs;
+
+
