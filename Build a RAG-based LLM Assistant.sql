@@ -119,7 +119,7 @@ update docs_chunks_table
 create or replace CORTEX SEARCH SERVICE CC_SEARCH_SERVICE_CS
 ON chunk
 ATTRIBUTES category
-warehouse = COMPUTE_WH
+warehouse = <YOUR_WH>
 TARGET_LAG = '1 minute'
 as (
     select chunk,
