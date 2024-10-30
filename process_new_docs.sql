@@ -1,5 +1,5 @@
 use database <your_db>;
-use schema <your_schema>;
+use schema DATA;
 use warehouse <your_wh>;
 
 --Create a stream to listen for new documents
