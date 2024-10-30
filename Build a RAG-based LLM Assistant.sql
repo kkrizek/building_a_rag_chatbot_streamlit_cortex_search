@@ -46,6 +46,8 @@ COPY FILES INTO @docs/
 
 ls @docs;
 
+select * from directory(@docs);
+
 --PRE-PROCESS AND LABEL DOCUMENTS
 --Create the table where we are going to store the chunks for each PDF.
 create or replace TABLE DOCS_CHUNKS_TABLE ( 
