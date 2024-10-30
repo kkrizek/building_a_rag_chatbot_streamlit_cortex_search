@@ -12,7 +12,7 @@ pd.set_option("max_colwidth",None)
 NUM_CHUNKS = 3 # Num-chunks provided as context. Play with this to check how it affects your accuracy
 
 # service parameters
-CORTEX_SEARCH_DATABASE = "CC_QUICKSTART_CORTEX_SEARCH_DOCS"
+CORTEX_SEARCH_DATABASE = "<YOUR_DB>"
 CORTEX_SEARCH_SCHEMA = "DATA"
 CORTEX_SEARCH_SERVICE = "CC_SEARCH_SERVICE_CS"
 ######
